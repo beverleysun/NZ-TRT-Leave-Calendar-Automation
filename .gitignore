@@ -1,0 +1,11 @@
+*PackageCache.json
+*ProjectSettings.json
+*.cache
+*.props
+*.backup
+*.local
+*.settings
+*.screenshots
+*.objects
+*.tmh
+*AllDependencies.json
