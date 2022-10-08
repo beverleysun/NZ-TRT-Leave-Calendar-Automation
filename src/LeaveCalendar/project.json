@@ -7,7 +7,7 @@
     "UiPath.Mail.Activities": "[1.12.3]",
     "UiPath.System.Activities": "[21.10.5]",
     "UiPath.UIAutomation.Activities": "[21.10.6]",
-    "UiPathTeam.OutlookCalendar.Activities": "[1.0.0]"
+    "UiPath.MicrosoftOffice365.Activities": "[1.14.1]"
   },
   "webServices": [],
   "entitiesStores": [],
@@ -21,10 +21,7 @@
     "isAttended": false,
     "requiresUserInteraction": true,
     "supportsPersistence": false,
-    "excludedLoggedData": [
-      "Private:*",
-      "*password*"
-    ],
+    "excludedLoggedData": ["Private:*", "*password*"],
     "executionType": "Workflow",
     "readyForPiP": false,
     "startsInPiP": false,
