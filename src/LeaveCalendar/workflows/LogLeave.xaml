@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>891,959</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>700,959</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>LogLeave_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="64">
@@ -87,12 +87,12 @@
       <AssemblyReference>System.Memory.Data</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>netstandard</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="LogLeave" sap:VirtualizedContainerService.HintSize="644,894" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dtLeaveData" />
-      <Variable x:TypeArguments="x:String" Default="C:\Program Files (x86)\Microsoft Office\root\Office16\outlook.exe" Name="strOutlookPath" />
       <Variable x:TypeArguments="mg:Calendar" Name="leaveCalendar" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
@@ -101,7 +101,7 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:BuildDataTable DataTable="[dtLeaveData]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="602,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Id&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Name&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Leave_x0020_Approver&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Date&quot; msdata:Caption=&quot;&quot; type=&quot;xs:dateTime&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Taken&quot; msdata:Caption=&quot;&quot; type=&quot;xs:double&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;Id&gt;188&lt;/Id&gt;&#xA;    &lt;Name&gt;RAY, Shaun&lt;/Name&gt;&#xA;    &lt;Leave_x0020_Approver&gt;Brent Lucas&lt;/Leave_x0020_Approver&gt;&#xA;    &lt;Date&gt;2022-10-28T00:00:00+13:00&lt;/Date&gt;&#xA;    &lt;Taken&gt;9&lt;/Taken&gt;&#xA;  &lt;/TableName&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;Id&gt;13550&lt;/Id&gt;&#xA;    &lt;Name&gt;ARMSTRONG, Shaun&lt;/Name&gt;&#xA;    &lt;Leave_x0020_Approver&gt;Brent Lucas&lt;/Leave_x0020_Approver&gt;&#xA;    &lt;Date&gt;2022-10-22T00:00:00+13:00&lt;/Date&gt;&#xA;    &lt;Taken&gt;9&lt;/Taken&gt;&#xA;  &lt;/TableName&gt;&#xA;&lt;/NewDataSet&gt;" />
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke GetLeaveCalendar workflow" sap:VirtualizedContainerService.HintSize="602,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="workflows\GetLeaveCalendar.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke GetLeaveCalendar workflow" sap:VirtualizedContainerService.HintSize="602,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="workflows\GetLeaveCalendar.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <OutArgument x:TypeArguments="mg:Calendar" x:Key="leaveCalendar">
           <mva:VisualBasicReference x:TypeArguments="mg:Calendar" ExpressionText="leaveCalendar" />
