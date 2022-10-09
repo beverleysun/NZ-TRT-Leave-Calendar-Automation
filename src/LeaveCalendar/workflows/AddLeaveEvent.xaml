@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>891,604</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>891,779</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>AddLeaveEvent_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -73,7 +73,6 @@
       <AssemblyReference>System.Memory.Data</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
       <AssemblyReference>UiPath.MicrosoftOffice365.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
@@ -83,7 +82,7 @@
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="AddLeaveEvent" sap:VirtualizedContainerService.HintSize="552,499" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="AddLeaveEvent" sap:VirtualizedContainerService.HintSize="552,674" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="mg:Calendar[]" Name="calendars" />
     </Sequence.Variables>
@@ -92,19 +91,19 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uma:Office365ApplicationScope ApplicationId="{x:Null}" ApplicationSecret="{x:Null}" CertificateAsBase64="{x:Null}" CertificatePassword="{x:Null}" ContinueOnError="{x:Null}" Password="{x:Null}" SecureApplicationSecret="{x:Null}" SecurePassword="{x:Null}" Tenant="{x:Null}" Timeout="{x:Null}" Username="{x:Null}" AuthenticationType="InteractiveToken" DisplayName="Microsoft Office 365 Scope" Environment="Global" sap:VirtualizedContainerService.HintSize="510,407" sap2010:WorkflowViewState.IdRef="Office365ApplicationScope_1" OAuthApplication="UiPath" Services="Unselected">
+    <uma:Office365ApplicationScope ApplicationId="{x:Null}" ApplicationSecret="{x:Null}" CertificateAsBase64="{x:Null}" CertificatePassword="{x:Null}" ContinueOnError="{x:Null}" Password="{x:Null}" SecureApplicationSecret="{x:Null}" SecurePassword="{x:Null}" Tenant="{x:Null}" Timeout="{x:Null}" Username="{x:Null}" AuthenticationType="InteractiveToken" DisplayName="Microsoft Office 365 Scope" Environment="Global" sap:VirtualizedContainerService.HintSize="510,582" sap2010:WorkflowViewState.IdRef="Office365ApplicationScope_1" OAuthApplication="UiPath" Services="Unselected">
       <uma:Office365ApplicationScope.Body>
         <ActivityAction x:TypeArguments="mg:GraphServiceClient">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="mg:GraphServiceClient" Name="ParentScope" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="476,321" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="476,496" sap2010:WorkflowViewState.IdRef="Sequence_5">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <umac:CreateEvent Account="{x:Null}" Body="{x:Null}" Categories="{x:Null}" Event="{x:Null}" Calendar="[in_calendar]" DisplayName="Create Event" EndTime="[cType(in_Date,Date)]" sap:VirtualizedContainerService.HintSize="434,229" sap2010:WorkflowViewState.IdRef="CreateEvent_1" IsAllDay="False" IsBodyHTML="False" ShowAs="Free" StartTime="[cType(in_Date,Date)]" Subject="[&quot;AL-&quot;+in_Name]" Timezone="New Zealand Standard Time" />
+            <umac:CreateEvent Account="{x:Null}" Categories="{x:Null}" Event="{x:Null}" Body="New Leave Event" Calendar="[in_calendar]" DisplayName="Create Event" EndTime="[cType(in_Date,Date)]" sap:VirtualizedContainerService.HintSize="434,404" sap2010:WorkflowViewState.IdRef="CreateEvent_1" IsAllDay="False" IsBodyHTML="False" ShowAs="Free" StartTime="[cType(in_Date,Date)]" Subject="[&quot;AL-&quot;+in_Name]" Timezone="New Zealand Standard Time" />
           </Sequence>
         </ActivityAction>
       </uma:Office365ApplicationScope.Body>
