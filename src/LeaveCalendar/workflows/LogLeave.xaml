@@ -1,11 +1,11 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="LogLeave" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mg="clr-namespace:Microsoft.Graph;assembly=Microsoft.Graph" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="datatable" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="in_datatable" Type="InArgument(sd:DataTable)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1055,1162</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1055,1690</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>LogLeave_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="64">
@@ -91,7 +91,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="LogLeave" sap:VirtualizedContainerService.HintSize="1065,1097" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="LogLeave" sap:VirtualizedContainerService.HintSize="1065,1625" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="mg:Calendar" Name="leaveCalendar" />
     </Sequence.Variables>
@@ -100,32 +100,36 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
+    <ui:Comment sap:VirtualizedContainerService.HintSize="1023,93" sap2010:WorkflowViewState.IdRef="Comment_1" Text="This workflow adds and deletes events in the leave calendar for every new/updated leave request" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1023,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Begin logging leave in calendar&quot;]" />
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke GetLeaveCalendar workflow" sap:VirtualizedContainerService.HintSize="1023,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="workflows\GetLeaveCalendar.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <OutArgument x:TypeArguments="mg:Calendar" x:Key="leaveCalendar">[leaveCalendar]</OutArgument>
+        <OutArgument x:TypeArguments="mg:Calendar" x:Key="out_leaveCalendar">
+          <mva:VisualBasicReference x:TypeArguments="mg:Calendar" ExpressionText="leaveCalendar" />
+        </OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1023,853" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1023,986" sap2010:WorkflowViewState.IdRef="Sequence_3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[datatable]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="981,761" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[in_datatable]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="981,894" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
         <ui:ForEachRow.Body>
           <ActivityAction x:TypeArguments="sd:DataRow">
             <ActivityAction.Argument>
-              <DelegateInArgument x:TypeArguments="sd:DataRow" Name="Row" />
+              <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="947,641" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence DisplayName="Process Leave Request" sap:VirtualizedContainerService.HintSize="947,774" sap2010:WorkflowViewState.IdRef="Sequence_2">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <If Condition="[Convert.ToDouble(Row.Item(&quot;Taken&quot;)) &gt; 0]" sap:VirtualizedContainerService.HintSize="905,549" sap2010:WorkflowViewState.IdRef="If_1">
+              <If Condition="[Convert.ToDouble(row.Item(&quot;Taken&quot;)) &gt; 0]" sap:VirtualizedContainerService.HintSize="905,682" sap2010:WorkflowViewState.IdRef="If_1">
                 <If.Then>
-                  <Sequence sap:VirtualizedContainerService.HintSize="376,356" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <Sequence DisplayName="Add Leave Event" sap:VirtualizedContainerService.HintSize="376,470" sap2010:WorkflowViewState.IdRef="Sequence_4">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:String" Name="category" />
                     </Sequence.Variables>
@@ -134,54 +138,42 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
+                    <ui:Comment sap:VirtualizedContainerService.HintSize="334,74" sap2010:WorkflowViewState.IdRef="Comment_2" Text="Requested leave is positive, so add the event to the calendar" />
                     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CostCentreToCategory workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="workflows\CostCentreToCategory.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
-                        <InArgument x:TypeArguments="x:String" x:Key="costCentre">
-                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Row.Item(&quot;Cost Centre&quot;).ToString()" />
+                        <InArgument x:TypeArguments="x:String" x:Key="in_costCentre">
+                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row.Item(&quot;Cost Centre&quot;).ToString()" />
                         </InArgument>
-                        <OutArgument x:TypeArguments="x:String" x:Key="category">
+                        <OutArgument x:TypeArguments="x:String" x:Key="out_category">
                           <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="category" />
                         </OutArgument>
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
                     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke AddLeaveEvent workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="workflows\AddLeaveEvent.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
-                        <InArgument x:TypeArguments="s:DateTime" x:Key="in_Date">
-                          <mva:VisualBasicValue x:TypeArguments="s:DateTime" ExpressionText="DateTime.Parse(Row.Item(&quot;Date&quot;).ToString())" />
-                        </InArgument>
-                        <InArgument x:TypeArguments="x:String" x:Key="in_Category">
-                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="category" />
-                        </InArgument>
-                        <InArgument x:TypeArguments="x:String" x:Key="in_Title">
-                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Row.Item(&quot;Element&quot;).ToString() + &quot; - &quot; + Row.Item(&quot;Name&quot;).ToString()" />
-                        </InArgument>
-                        <InArgument x:TypeArguments="mg:Calendar" x:Key="in_Calendar">
-                          <mva:VisualBasicValue x:TypeArguments="mg:Calendar" ExpressionText="leaveCalendar" />
-                        </InArgument>
-                        <InArgument x:TypeArguments="x:String" x:Key="in_Body">
-                          <Literal x:TypeArguments="x:String" xml:space="preserve"> </Literal>
-                        </InArgument>
+                        <InArgument x:TypeArguments="s:DateTime" x:Key="in_Date">[DateTime.Parse(row.Item("Date").ToString())]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_Category">[category]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_Title">[row.Item("Element").ToString() + " - " + row.Item("Name").ToString()]</InArgument>
+                        <InArgument x:TypeArguments="mg:Calendar" x:Key="in_Calendar">[leaveCalendar]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_Body" xml:space="preserve"> </InArgument>
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
                   </Sequence>
                 </If.Then>
                 <If.Else>
-                  <If Condition="[Convert.ToDouble(Row.Item(&quot;Taken&quot;)) &lt; 0]" sap:VirtualizedContainerService.HintSize="484,391" sap2010:WorkflowViewState.IdRef="If_2">
+                  <If Condition="[Convert.ToDouble(row.Item(&quot;Taken&quot;)) &lt; 0]" sap:VirtualizedContainerService.HintSize="484,524" sap2010:WorkflowViewState.IdRef="If_2">
                     <If.Then>
-                      <Sequence sap:VirtualizedContainerService.HintSize="376,204" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                      <Sequence DisplayName="Delete Leave Event" sap:VirtualizedContainerService.HintSize="376,337" sap2010:WorkflowViewState.IdRef="Sequence_7">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
+                        <ui:Comment sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="Comment_3" Text="Requested leave is negative, so the leave request was cancelled. Delete the event from the calendar" />
                         <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke DeleteLeaveEvent workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="workflows\DeleteLeaveEvent.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
-                            <InArgument x:TypeArguments="x:String" x:Key="in_eventTitle">
-                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Row.Item(&quot;Element&quot;).ToString() + &quot; - &quot; + Row.Item(&quot;Name&quot;).ToString()" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="s:DateTime" x:Key="in_eventDate">
-                              <mva:VisualBasicValue x:TypeArguments="s:DateTime" ExpressionText="DateTime.Parse(Row.Item(&quot;Date&quot;).ToString())" />
-                            </InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_eventTitle">[row.Item("Element").ToString() + " - " + row.Item("Name").ToString()]</InArgument>
+                            <InArgument x:TypeArguments="s:DateTime" x:Key="in_eventDate">[DateTime.Parse(row.Item("Date").ToString())]</InArgument>
                           </ui:InvokeWorkflowFile.Arguments>
                         </ui:InvokeWorkflowFile>
                       </Sequence>
@@ -203,5 +195,6 @@
         </ui:ForEachRow.Body>
       </ui:ForEachRow>
     </Sequence>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1023,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Completed logging leave in calendar&quot;]" />
   </Sequence>
 </Activity>

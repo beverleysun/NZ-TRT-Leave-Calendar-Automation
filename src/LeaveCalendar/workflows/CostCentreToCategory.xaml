@@ -1,12 +1,12 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="CostCentreToCategory" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="costCentre" Type="InArgument(x:String)" />
-    <x:Property Name="category" Type="OutArgument(x:String)" />
+    <x:Property Name="in_costCentre" Type="InArgument(x:String)" />
+    <x:Property Name="out_category" Type="OutArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>687,779</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>788,673</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>CostCentreToCategory_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -59,18 +59,18 @@
       <AssemblyReference>System.Memory</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="539,714" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap:VirtualizedContainerService.HintSize="539,608" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:Comment sap:VirtualizedContainerService.HintSize="497,74" sap2010:WorkflowViewState.IdRef="Comment_1" Text="Convert a cost centre code into its department name" />
-    <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[costCentre]" sap:VirtualizedContainerService.HintSize="497,508" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+    <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[in_costCentre]" sap:VirtualizedContainerService.HintSize="497,402" sap2010:WorkflowViewState.IdRef="Switch`1_2">
       <Switch.Default>
         <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_7">
           <Assign.To>
-            <OutArgument x:TypeArguments="x:String">[category]</OutArgument>
+            <OutArgument x:TypeArguments="x:String">[out_category]</OutArgument>
           </Assign.To>
           <Assign.Value>
             <InArgument x:TypeArguments="x:String">Other</InArgument>
@@ -79,7 +79,7 @@
       </Switch.Default>
       <Assign x:Key="T-A-Z-Z-1020" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_1">
         <Assign.To>
-          <OutArgument x:TypeArguments="x:String">[category]</OutArgument>
+          <OutArgument x:TypeArguments="x:String">[out_category]</OutArgument>
         </Assign.To>
         <Assign.Value>
           <InArgument x:TypeArguments="x:String">Corporate</InArgument>
@@ -87,7 +87,7 @@
       </Assign>
       <Assign x:Key="T-C-H-A-1020" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_2">
         <Assign.To>
-          <OutArgument x:TypeArguments="x:String">[category]</OutArgument>
+          <OutArgument x:TypeArguments="x:String">[out_category]</OutArgument>
         </Assign.To>
         <Assign.Value>
           <InArgument x:TypeArguments="x:String">Crane Sales Salary</InArgument>
@@ -95,7 +95,7 @@
       </Assign>
       <Assign x:Key="T-H-P-U-1020" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_3">
         <Assign.To>
-          <OutArgument x:TypeArguments="x:String">[category]</OutArgument>
+          <OutArgument x:TypeArguments="x:String">[out_category]</OutArgument>
         </Assign.To>
         <Assign.Value>
           <InArgument x:TypeArguments="x:String">HIAB Zepro</InArgument>
@@ -103,7 +103,7 @@
       </Assign>
       <Assign x:Key="T-T-A-K-1020" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_4">
         <Assign.To>
-          <OutArgument x:TypeArguments="x:String">[category]</OutArgument>
+          <OutArgument x:TypeArguments="x:String">[out_category]</OutArgument>
         </Assign.To>
         <Assign.Value>
           <InArgument x:TypeArguments="x:String">Auckland Parts</InArgument>
@@ -111,7 +111,7 @@
       </Assign>
       <Assign x:Key="T-T-C-C-1020" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_5">
         <Assign.To>
-          <OutArgument x:TypeArguments="x:String">[category]</OutArgument>
+          <OutArgument x:TypeArguments="x:String">[out_category]</OutArgument>
         </Assign.To>
         <Assign.Value>
           <InArgument x:TypeArguments="x:String">Christchurch Parts</InArgument>
@@ -119,7 +119,7 @@
       </Assign>
       <Assign x:Key="T-T-H-A-1020" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_6">
         <Assign.To>
-          <OutArgument x:TypeArguments="x:String">[category]</OutArgument>
+          <OutArgument x:TypeArguments="x:String">[out_category]</OutArgument>
         </Assign.To>
         <Assign.Value>
           <InArgument x:TypeArguments="x:String">Hamilton Parts</InArgument>
@@ -127,7 +127,7 @@
       </Assign>
       <Assign x:Key="T-W-F-A-0700" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_8">
         <Assign.To>
-          <OutArgument x:TypeArguments="x:String">[category]</OutArgument>
+          <OutArgument x:TypeArguments="x:String">[out_category]</OutArgument>
         </Assign.To>
         <Assign.Value>
           <InArgument x:TypeArguments="x:String">Manufacturing Workshop</InArgument>
@@ -135,7 +135,7 @@
       </Assign>
       <Assign x:Key="T-W-F-A-1020" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_9">
         <Assign.To>
-          <OutArgument x:TypeArguments="x:String">[category]</OutArgument>
+          <OutArgument x:TypeArguments="x:String">[out_category]</OutArgument>
         </Assign.To>
         <Assign.Value>
           <InArgument x:TypeArguments="x:String">Manufacturing Salary</InArgument>
@@ -143,7 +143,7 @@
       </Assign>
       <Assign x:Key="T-W-M-S-0700" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_10">
         <Assign.To>
-          <OutArgument x:TypeArguments="x:String">[category]</OutArgument>
+          <OutArgument x:TypeArguments="x:String">[out_category]</OutArgument>
         </Assign.To>
         <Assign.Value>
           <InArgument x:TypeArguments="x:String">M/Service Workshop</InArgument>
@@ -151,7 +151,7 @@
       </Assign>
       <Assign x:Key="T-W-M-S-1020" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_11">
         <Assign.To>
-          <OutArgument x:TypeArguments="x:String">[category]</OutArgument>
+          <OutArgument x:TypeArguments="x:String">[out_category]</OutArgument>
         </Assign.To>
         <Assign.Value>
           <InArgument x:TypeArguments="x:String">M/Service Salary</InArgument>
@@ -159,7 +159,7 @@
       </Assign>
       <Assign x:Key="T-W-P-S-0700" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_12">
         <Assign.To>
-          <OutArgument x:TypeArguments="x:String">[category]</OutArgument>
+          <OutArgument x:TypeArguments="x:String">[out_category]</OutArgument>
         </Assign.To>
         <Assign.Value>
           <InArgument x:TypeArguments="x:String">Blast &amp; Paint Workshop</InArgument>
@@ -167,7 +167,7 @@
       </Assign>
       <Assign x:Key="T-W-T-G-0700" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_13">
         <Assign.To>
-          <OutArgument x:TypeArguments="x:String">[category]</OutArgument>
+          <OutArgument x:TypeArguments="x:String">[out_category]</OutArgument>
         </Assign.To>
         <Assign.Value>
           <InArgument x:TypeArguments="x:String">Crane Service Workshop</InArgument>
@@ -175,7 +175,7 @@
       </Assign>
       <Assign x:Key="T-W-T-G-1020" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_14">
         <Assign.To>
-          <OutArgument x:TypeArguments="x:String">[category]</OutArgument>
+          <OutArgument x:TypeArguments="x:String">[out_category]</OutArgument>
         </Assign.To>
         <Assign.Value>
           <InArgument x:TypeArguments="x:String">Crane Service Salary</InArgument>
