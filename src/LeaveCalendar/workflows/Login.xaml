@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1210,4782" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:si="clr-namespace:System.IO;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1210,5325" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:si="clr-namespace:System.IO;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="54">
       <x:String>System.Activities</x:String>
@@ -71,9 +71,13 @@
       <AssemblyReference>UiPath.CV</AssemblyReference>
       <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="812,4717" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence sap:VirtualizedContainerService.HintSize="812,5260" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dt" />
     </Sequence.Variables>
@@ -82,7 +86,9 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:OpenBrowser BrowserType="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="770,184" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="Secure2.ipayroll.co.nz/login">
+    <ui:Comment sap:VirtualizedContainerService.HintSize="770,112" sap2010:WorkflowViewState.IdRef="Comment_1" Text="// This workflow logs into the iPayroll System with 2Fa code and download leave data from current date to 30 days later, and export the original leave data into a CSV file." />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="770,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Logging into iPayroll&quot;]" />
+    <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" BrowserType="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="770,184" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="Secure2.ipayroll.co.nz/login">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -98,7 +104,7 @@
         </ActivityAction>
       </ui:OpenBrowser.Body>
     </ui:OpenBrowser>
-    <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="770,4401" sap2010:WorkflowViewState.IdRef="Sequence_14">
+    <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="770,4661" sap2010:WorkflowViewState.IdRef="Sequence_14">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -138,7 +144,7 @@
           </ui:Target>
         </ui:Click.Target>
       </ui:Click>
-      <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="728,4027" sap2010:WorkflowViewState.IdRef="Sequence_15">
+      <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="728,4287" sap2010:WorkflowViewState.IdRef="Sequence_15">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -156,7 +162,7 @@
             </ui:Target>
           </ui:TypeInto.Target>
         </ui:TypeInto>
-        <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="686,3761" sap2010:WorkflowViewState.IdRef="Sequence_17">
+        <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="686,4021" sap2010:WorkflowViewState.IdRef="Sequence_17">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -177,14 +183,14 @@
               </ui:Target>
             </ui:Click.Target>
           </ui:Click>
-          <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="644,3523" sap2010:WorkflowViewState.IdRef="Sequence_16">
+          <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="644,3783" sap2010:WorkflowViewState.IdRef="Sequence_16">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <ui:StartProcess Arguments="{x:Null}" WorkingDirectory="{x:Null}" DisplayName="Start Process" FileName="C:\Users\rpa_dev\AppData\Local\authy\Authy Desktop.exe" sap:VirtualizedContainerService.HintSize="602,87" sap2010:WorkflowViewState.IdRef="StartProcess_1" />
-            <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="602,3304" sap2010:WorkflowViewState.IdRef="Sequence_30">
+            <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="602,3564" sap2010:WorkflowViewState.IdRef="Sequence_30">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -277,7 +283,7 @@
                   </Sequence>
                 </Sequence>
               </Sequence>
-              <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="560,2498" sap2010:WorkflowViewState.IdRef="Sequence_32">
+              <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="560,2758" sap2010:WorkflowViewState.IdRef="Sequence_32">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="ui:GenericValue" Name="Grouping" />
                   <Variable x:TypeArguments="x:String" Name="inputCode" />
@@ -287,13 +293,13 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="518,2406" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="518,2666" sap2010:WorkflowViewState.IdRef="Sequence_31">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'INPUT  code'" sap:VirtualizedContainerService.HintSize="476,154" sap2010:WorkflowViewState.IdRef="SendHotkey_2" Key="v" KeyModifiers="Ctrl" SpecialKey="False">
+                  <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'INPUT  code'" sap:VirtualizedContainerService.HintSize="476,152" sap2010:WorkflowViewState.IdRef="SendHotkey_2" Key="v" KeyModifiers="Ctrl" SpecialKey="False">
                     <ui:SendHotkey.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a7d02313-41af-4d01-8d75-dbd8c25f9ee0" InformativeScreenshot="3d8538583d1a25808c3115bf13796f83" Selector="&lt;html title='Two Factor Authentication | Payroll Service New Zealand - iPayroll ®' /&gt;&lt;webctrl idx='1' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
                         <ui:Target.TimeoutMS>
@@ -380,7 +386,7 @@
                       </ui:Target>
                     </ui:Click.Target>
                   </ui:Click>
-                  <Sequence DisplayName="Target Appears" sap:VirtualizedContainerService.HintSize="476,1536" sap2010:WorkflowViewState.IdRef="Sequence_39">
+                  <Sequence DisplayName="Target Appears" sap:VirtualizedContainerService.HintSize="476,1798" sap2010:WorkflowViewState.IdRef="Sequence_39">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:String" Name="To_Date" />
                       <Variable x:TypeArguments="si:FileInfo" Name="excel_file" />
@@ -432,6 +438,7 @@
                         </ui:Target>
                       </ui:Click.Target>
                     </ui:Click>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Downloading leave data excel file&quot;]" />
                     <ui:GetLastDownloadedFile Timeout="{x:Null}" DisplayName="Wait for Download" DownloadFolder="C:\Users\rpa_dev\Downloads" File="[excel_file]" sap:VirtualizedContainerService.HintSize="434,405" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_2">
                       <ui:GetLastDownloadedFile.Body>
                         <ActivityAction>
@@ -489,6 +496,7 @@
                       </ui:ExcelApplicationScope.Body>
                     </ui:ExcelApplicationScope>
                     <ui:WriteCsvFile Encoding="{x:Null}" AddHeaders="True" DataTable="[dt]" Delimitator="Comma" DisplayName="Write CSV" FilePath="[&quot;Output\leave-data-&quot;+DateTime. Now.toString(“dd-MMM-yyyy”)+&quot;.csv&quot;]" sap:VirtualizedContainerService.HintSize="434,152" sap2010:WorkflowViewState.IdRef="WriteCsvFile_1" />
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Export CSV file completed&quot;]" />
                   </Sequence>
                 </Sequence>
               </Sequence>
