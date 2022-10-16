@@ -1,8 +1,8 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="GetLeaveCalendar" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mg="clr-namespace:Microsoft.Graph;assembly=Microsoft.Graph" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:uma="clr-namespace:UiPath.MicrosoftOffice365.Activities;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:umac="clr-namespace:UiPath.MicrosoftOffice365.Activities.Calendar;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="GetLeaveCalendar" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mg="clr-namespace:Microsoft.Graph;assembly=Microsoft.Graph" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uma="clr-namespace:UiPath.MicrosoftOffice365.Activities;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:umac="clr-namespace:UiPath.MicrosoftOffice365.Activities.Calendar;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="leaveCalendar" Type="OutArgument(mg:Calendar)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>707,658</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>719,1077</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="64">
@@ -82,19 +82,19 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="GetLeaveCalendar" sap:VirtualizedContainerService.HintSize="476,455" sap2010:WorkflowViewState.IdRef="Sequence_12">
+  <Sequence sap:VirtualizedContainerService.HintSize="680,1012" sap2010:WorkflowViewState.IdRef="Sequence_12">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uma:Office365ApplicationScope ApplicationId="{x:Null}" ApplicationSecret="{x:Null}" CertificateAsBase64="{x:Null}" CertificatePassword="{x:Null}" ContinueOnError="{x:Null}" Password="{x:Null}" SecureApplicationSecret="{x:Null}" SecurePassword="{x:Null}" Tenant="{x:Null}" Timeout="{x:Null}" Username="{x:Null}" AuthenticationType="InteractiveToken" DisplayName="Microsoft Office 365 Scope" Environment="Global" sap:VirtualizedContainerService.HintSize="434,363" sap2010:WorkflowViewState.IdRef="Office365ApplicationScope_2" OAuthApplication="UiPath" Services="Calendar">
+    <uma:Office365ApplicationScope ApplicationId="{x:Null}" ApplicationSecret="{x:Null}" CertificateAsBase64="{x:Null}" CertificatePassword="{x:Null}" ContinueOnError="{x:Null}" Password="{x:Null}" SecureApplicationSecret="{x:Null}" SecurePassword="{x:Null}" Tenant="{x:Null}" Timeout="{x:Null}" Username="{x:Null}" AuthenticationType="InteractiveToken" DisplayName="Microsoft Office 365 Scope" Environment="Global" sap:VirtualizedContainerService.HintSize="638,920" sap2010:WorkflowViewState.IdRef="Office365ApplicationScope_2" OAuthApplication="UiPath" Services="Calendar">
       <uma:Office365ApplicationScope.Body>
         <ActivityAction x:TypeArguments="mg:GraphServiceClient">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="mg:GraphServiceClient" Name="ParentScope" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,277" sap2010:WorkflowViewState.IdRef="Sequence_13">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="604,834" sap2010:WorkflowViewState.IdRef="Sequence_13">
             <Sequence.Variables>
               <Variable x:TypeArguments="mg:Calendar[]" Name="calendars" />
             </Sequence.Variables>
@@ -103,15 +103,52 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <umac:GetCalendars Account="{x:Null}" DefaultCalendar="{x:Null}" UserEmail="{x:Null}" Calendars="[calendars]" DisplayName="Get Calendars" sap:VirtualizedContainerService.HintSize="334,85" sap2010:WorkflowViewState.IdRef="GetCalendars_2" />
-            <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_2">
-              <Assign.To>
-                <OutArgument x:TypeArguments="mg:Calendar">[leaveCalendar]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="mg:Calendar">[Array.Find(calendars, Function (c) c.Name = "TRT Leave" )]</InArgument>
-              </Assign.Value>
-            </Assign>
+            <umac:GetCalendars Account="{x:Null}" DefaultCalendar="{x:Null}" UserEmail="{x:Null}" Calendars="[calendars]" DisplayName="Get Calendars" sap:VirtualizedContainerService.HintSize="562,85" sap2010:WorkflowViewState.IdRef="GetCalendars_2" />
+            <ui:ForEach x:TypeArguments="mg:Calendar" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="562,617" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[calendars]">
+              <ui:ForEach.Body>
+                <ActivityAction x:TypeArguments="mg:Calendar">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="mg:Calendar" Name="c" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="526,493" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If Condition="[c.Name = &quot;TRT Leave&quot;]" sap:VirtualizedContainerService.HintSize="484,401" sap2010:WorkflowViewState.IdRef="If_1">
+                      <If.Then>
+                        <Sequence sap:VirtualizedContainerService.HintSize="304,214" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="mg:Calendar">[leaveCalendar]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="mg:Calendar">[c]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <ui:Break sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="Break_1" />
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_6">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEach.Body>
+            </ui:ForEach>
           </Sequence>
         </ActivityAction>
       </uma:Office365ApplicationScope.Body>

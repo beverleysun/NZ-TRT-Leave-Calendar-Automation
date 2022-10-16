@@ -1,12 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="LogLeave" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mg="clr-namespace:Microsoft.Graph;assembly=Microsoft.Graph" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-  <x:Members>
-    <x:Property Name="argument1" Type="InArgument(x:String)" />
-  </x:Members>
-  <mva:VisualBasic.Settings>
-    <x:Null />
-  </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>700,959</sap:VirtualizedContainerService.HintSize>
-  <sap2010:WorkflowViewState.IdRef>LogLeave_1</sap2010:WorkflowViewState.IdRef>
+<Activity mc:Ignorable="sap sap2010" x:Class="LogLeave" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1157,1116" sap2010:WorkflowViewState.IdRef="LogLeave_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="64">
       <x:String>System.Activities</x:String>
@@ -43,9 +35,6 @@
       <x:String>UiPath.Shared.Activities</x:String>
       <x:String>System.Reflection</x:String>
       <x:String>System.Runtime.InteropServices</x:String>
-      <x:String>Microsoft.Graph</x:String>
-      <x:String>UiPath.MicrosoftOffice365.Activities.Calendar</x:String>
-      <x:String>UiPath.MicrosoftOffice365.Activities</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -76,61 +65,58 @@
       <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
       <AssemblyReference>System.Memory</AssemblyReference>
-      <AssemblyReference>UiPath.MicrosoftOffice365</AssemblyReference>
-      <AssemblyReference>Microsoft.Graph</AssemblyReference>
-      <AssemblyReference>Microsoft.Graph.Core</AssemblyReference>
-      <AssemblyReference>UiPath.MicrosoftOffice365.Activities</AssemblyReference>
-      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
-      <AssemblyReference>System.ValueTuple</AssemblyReference>
-      <AssemblyReference>UiPath.Excel</AssemblyReference>
-      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
-      <AssemblyReference>System.Memory.Data</AssemblyReference>
-      <AssemblyReference>System.ServiceModel</AssemblyReference>
-      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
-      <AssemblyReference>netstandard</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="LogLeave" sap:VirtualizedContainerService.HintSize="644,894" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="LogLeave" sap:VirtualizedContainerService.HintSize="678,1051" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dtLeaveData" />
-      <Variable x:TypeArguments="mg:Calendar" Name="leaveCalendar" />
+      <Variable x:TypeArguments="x:String" Name="strOutlookPath">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">C:\Program Files (x86)\Microsoft Office\root\Office16\outlook.exe</Literal>
+        </Variable.Default>
+      </Variable>
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BuildDataTable DataTable="[dtLeaveData]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="602,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Id&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Name&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Leave_x0020_Approver&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Date&quot; msdata:Caption=&quot;&quot; type=&quot;xs:dateTime&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Taken&quot; msdata:Caption=&quot;&quot; type=&quot;xs:double&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;Id&gt;188&lt;/Id&gt;&#xA;    &lt;Name&gt;RAY, Shaun&lt;/Name&gt;&#xA;    &lt;Leave_x0020_Approver&gt;Brent Lucas&lt;/Leave_x0020_Approver&gt;&#xA;    &lt;Date&gt;2022-10-28T00:00:00+13:00&lt;/Date&gt;&#xA;    &lt;Taken&gt;9&lt;/Taken&gt;&#xA;  &lt;/TableName&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;Id&gt;13550&lt;/Id&gt;&#xA;    &lt;Name&gt;ARMSTRONG, Shaun&lt;/Name&gt;&#xA;    &lt;Leave_x0020_Approver&gt;Brent Lucas&lt;/Leave_x0020_Approver&gt;&#xA;    &lt;Date&gt;2022-10-22T00:00:00+13:00&lt;/Date&gt;&#xA;    &lt;Taken&gt;9&lt;/Taken&gt;&#xA;  &lt;/TableName&gt;&#xA;&lt;/NewDataSet&gt;" />
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke GetLeaveCalendar workflow" sap:VirtualizedContainerService.HintSize="602,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="workflows\GetLeaveCalendar.xaml">
-      <ui:InvokeWorkflowFile.Arguments>
-        <OutArgument x:TypeArguments="mg:Calendar" x:Key="leaveCalendar">
-          <mva:VisualBasicReference x:TypeArguments="mg:Calendar" ExpressionText="leaveCalendar" />
-        </OutArgument>
-      </ui:InvokeWorkflowFile.Arguments>
-    </ui:InvokeWorkflowFile>
-    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="602,551" sap2010:WorkflowViewState.IdRef="Sequence_3">
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtLeaveData]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="560,459" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
-        <ui:ForEachRow.Body>
-          <ActivityAction x:TypeArguments="sd:DataRow">
-            <ActivityAction.Argument>
-              <DelegateInArgument x:TypeArguments="sd:DataRow" Name="Row" />
-            </ActivityAction.Argument>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="526,339" sap2010:WorkflowViewState.IdRef="Sequence_2">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <If Condition="[Convert.ToDouble(Row.Item(&quot;Taken&quot;)) &gt; 0]" sap:VirtualizedContainerService.HintSize="484,247" sap2010:WorkflowViewState.IdRef="If_1" />
-            </Sequence>
-          </ActivityAction>
-        </ui:ForEachRow.Body>
-      </ui:ForEachRow>
-    </Sequence>
+    <ui:BuildDataTable DataTable="[dtLeaveData]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="636,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Id&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Name&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Leave_x0020_Approver&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Date&quot; msdata:Caption=&quot;&quot; type=&quot;xs:dateTime&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Taken&quot; msdata:Caption=&quot;&quot; type=&quot;xs:double&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;Id&gt;188&lt;/Id&gt;&#xA;    &lt;Name&gt;RAY, Shaun&lt;/Name&gt;&#xA;    &lt;Leave_x0020_Approver&gt;Brent Lucas&lt;/Leave_x0020_Approver&gt;&#xA;    &lt;Date&gt;2022-10-28T00:00:00+13:00&lt;/Date&gt;&#xA;    &lt;Taken&gt;9&lt;/Taken&gt;&#xA;  &lt;/TableName&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;Id&gt;13550&lt;/Id&gt;&#xA;    &lt;Name&gt;ARMSTRONG, Shaun&lt;/Name&gt;&#xA;    &lt;Leave_x0020_Approver&gt;Brent Lucas&lt;/Leave_x0020_Approver&gt;&#xA;    &lt;Date&gt;2022-10-22T00:00:00+13:00&lt;/Date&gt;&#xA;    &lt;Taken&gt;9&lt;/Taken&gt;&#xA;  &lt;/TableName&gt;&#xA;&lt;/NewDataSet&gt;" />
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: 日历 (仅限于此计算机)-rli948@aucklanduni.ac.nz - Outlook" sap:VirtualizedContainerService.HintSize="636,860" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="3598d71e-895e-4ab4-8ac8-05b3301b149f" Version="V1">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="602,565" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtLeaveData]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="560,471" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+              <ui:ForEachRow.Body>
+                <ActivityAction x:TypeArguments="sd:DataRow">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="sd:DataRow" Name="Row" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="526,348" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If Condition="[Convert.ToDouble(Row.Item(&quot;Taken&quot;)) &gt; 0]" sap:VirtualizedContainerService.HintSize="484,254" sap2010:WorkflowViewState.IdRef="If_1" />
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEachRow.Body>
+            </ui:ForEachRow>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-8, -8, 1936, 1096" FilePath="[strOutlookPath]" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALRSURBVFhH7ZfdSxRRGMY3p21Ji3Z3JCMwcjGsLvoPgm4iCAkTyojCNiqRwvZSw0orVqvtAysEofTCJSUyKIqi0CyLFGEoV7aNSohQ6KIggqCbp/OOZ7azs+fY7Ic30QM/mH3n7Ps8M+fMnF3XfzmVduChwUCeMHhb55I0yQne1rlkTXKBt81AjTGoWNv3RUlVAlJ41wwkMbaQGVvIzAneNQMdGYSKNV1xqTkhMyd4V6bGmGG/Isc0PIersg3lnW+k5oTMnODuTLLGmbD52PwF2NQ1ZSI7lyTfAbwtcXSPf4NdVKNz9vEFGxtm14KtbiELRXB3JtsXjOmf3BLmsf2zPUReA+y79ZlbwTy26jQNlkL3ZpJ1Iq8Bhj78ME3uTH5PaUJY00JjxHq2AQor6kJpAazb3fKEJRTqBNVINEas5xCAYJuSMHjq6y/TZD4DVPROo6x9FEUbjsJbf5dNhTDYmgK63WKdUE2Btn47tN1R6YZDiGML6ofgru5BUd0D6Gffovgye8TFAbTALKkWoVgnnARY0PASC2tuYnHtAHxnJkxji5QAhP2xs3+2j9fWVakDHHwEbc8APDVRLGseSzFWBsj0RbSofCvclVeg7b//x5gdu3f0wlPZiaWhQamxRVoAESev4uV7T8FX2w3Plg64d/Wb0PGS4G3o599JTUXmDOCEkmDY3AsC1xLwBvtRuPMGvE3PoJ+bRPHF91JTEQqQ9XashZ4mA1iPWVkXM20dgf/kC+htr9ldiKP40kepOTH7MppD/m2HoUKvDmHFoYh0NyztiMF/Yhj+1lfQ2yegRxLMMD0It1GrtKkPf0P1i6giOoOVEQO+5iH4T4+xZ59Ny4XUdcFt1Fodfoy5CERGpOYi5T2fUBIehe/4MPSwkbI+uI1asobZErjOrtpcHyPJ9cFt1JI1ypVVV+PJ9cFt1GJfMOwN8gFfH5n/RfvH5HL9BgIsf5Fb3KeZAAAAAElFTkSuQmCC" InformativeScreenshot="4ebd70882522d5c6c1bd7304192c8efb.png" Selector="&lt;wnd app='outlook.exe' cls='rctrl_renwnd32' title='日历 (仅限于此计算机)-rli948@aucklanduni.ac.nz - Outlook'/&gt;" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
   </Sequence>
 </Activity>
