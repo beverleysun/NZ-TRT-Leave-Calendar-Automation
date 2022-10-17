@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1167,5237</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1167,5833</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="54">
@@ -103,7 +103,7 @@
       <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="LoginAndDownloadData" sap:VirtualizedContainerService.HintSize="594,5571" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence DisplayName="LoginAndDownloadData" sap:VirtualizedContainerService.HintSize="594,5768" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dt" />
     </Sequence.Variables>
@@ -114,13 +114,13 @@
     </sap:WorkflowViewStateService.ViewState>
     <ui:Comment sap:VirtualizedContainerService.HintSize="552,112" sap2010:WorkflowViewState.IdRef="Comment_1" Text="// This workflow logs into the iPayroll System with 2Fa code and download leave data from current date to 30 days later, and outputs a datatable from the downloaded excel file." />
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="552,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Begin data collection&quot;]" />
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Edge" sap:VirtualizedContainerService.HintSize="552,5196" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="Simulate" ScopeGuid="79372df2-2191-4f09-977b-941cd6b40ada" Version="V1">
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Edge" sap:VirtualizedContainerService.HintSize="552,5393" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="Simulate" ScopeGuid="79372df2-2191-4f09-977b-941cd6b40ada" Version="V1">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="518,4980" sap2010:WorkflowViewState.IdRef="Sequence_46">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="518,5177" sap2010:WorkflowViewState.IdRef="Sequence_46">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -343,7 +343,7 @@
                 </ui:Target>
               </ui:Click.Target>
             </ui:Click>
-            <Sequence DisplayName="Target Appears" sap:VirtualizedContainerService.HintSize="476,2075" sap2010:WorkflowViewState.IdRef="Sequence_43">
+            <Sequence DisplayName="Target Appears" sap:VirtualizedContainerService.HintSize="476,2272" sap2010:WorkflowViewState.IdRef="Sequence_43">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:String" Name="toDate" />
                 <Variable x:TypeArguments="si:FileInfo" Name="excelFile" />
@@ -433,6 +433,11 @@
                   </ActivityAction>
                 </ui:GetLastDownloadedFile.Body>
               </ui:GetLastDownloadedFile>
+              <uix:NClick ClickType="Single" DisplayName="Click 'Logout'" sap:VirtualizedContainerService.HintSize="434,156" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="79372df2-2191-4f09-977b-941cd6b40ada" Version="V1">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://secure2.ipayroll.co.nz/60395/reports/leave/history" DesignTimeRectangle="1505, 89, 40, 15" ElementType="Text" FriendlyName="'Logout'" FullSelectorArgument="&lt;webctrl parentid='logoutForm' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='logoutForm' tag='A' type='' aaname='Logout' check:text='Logout' /&gt;" Guid="c5c18e42-b586-402c-ab63-ac244ccb696e" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACwAAAATCAYAAADrqO95AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEsSURBVEhL7ZMxDgFBFIZdwRmcgSu4gRM4gaipt9YoREW3uq1EIRENpUi0EgqbaBAiipF/+Ccvg2SLGdkVf7LZ7JuZb755Rk5lLH9h38mu8GK7V8Ug1O80J7XCu8NZlYKBGq02z8ojvytMQL7e1Y8Ena43VekMdb3Q6Ktqb6y/UUfak6VZJ+tggAk2QofZOjY8e69EwhTCxggAEONc1CnCg/FbSpFTC6d63SdhvMmRskgiYXtMHsA+DCIPADkKIlLSm7ANlpLvwBSOj5eXw3xF2B5LfYdtKUBc3GGsB4dS4JCbSBiT+c/kQzgBrEsQRVDHnGY0N8IIRLhO1hHwOYZ15VZkGsExNgoxwi6DDeQ1cBknwpBjF/hLyK64jBNh+zr56i7i5Ur4TMaElboDsIwufOjvzZUAAAAASUVORK5CYII=" InformativeScreenshot="755d8aee047e822a74167285a7fb009b.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Leave History | Payroll Service New Zealand - iPayroll ®' /&gt;" SearchSteps="FuzzySelector, Image" />
+                </uix:NClick.Target>
+              </uix:NClick>
               <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Downloaded to: '&quot; + excelFile.FullName + &quot;'&quot;]" />
               <ui:Comment sap:VirtualizedContainerService.HintSize="434,55" sap2010:WorkflowViewState.IdRef="Comment_8" Text="// Convert to datatable" />
               <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Converting '&quot; + excelFile.FullName + &quot;' to datatable&quot;]" />
