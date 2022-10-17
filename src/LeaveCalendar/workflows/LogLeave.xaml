@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1228,1641</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1167,1681</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>LogLeave_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="64">
@@ -46,6 +46,7 @@
       <x:String>Microsoft.Graph</x:String>
       <x:String>UiPath.MicrosoftOffice365.Activities.Calendar</x:String>
       <x:String>UiPath.MicrosoftOffice365.Activities</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -88,6 +89,7 @@
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>netstandard</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="LogLeave" sap:VirtualizedContainerService.HintSize="1102,1576" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -124,7 +126,7 @@
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <If Condition="[Convert.ToDouble(row.Item(&quot;Taken&quot;)) &gt; 0]" sap:VirtualizedContainerService.HintSize="942,633" sap2010:WorkflowViewState.IdRef="If_1">
+              <If Condition="[row.Item(&quot;Taken&quot;).ToString().Trim().Substring(0,1) &lt;&gt; &quot;-&quot;]" sap:VirtualizedContainerService.HintSize="942,633" sap2010:WorkflowViewState.IdRef="If_1">
                 <If.Then>
                   <Sequence DisplayName="Add Leave Event" sap:VirtualizedContainerService.HintSize="376,470" sap2010:WorkflowViewState.IdRef="Sequence_4">
                     <Sequence.Variables>
@@ -154,7 +156,7 @@
                   </Sequence>
                 </If.Then>
                 <If.Else>
-                  <If Condition="[Convert.ToDouble(row.Item(&quot;Taken&quot;)) &lt; 0]" sap:VirtualizedContainerService.HintSize="521,485" sap2010:WorkflowViewState.IdRef="If_2">
+                  <If Condition="[row.Item(&quot;Taken&quot;).ToString().Trim().Substring(0,1) = &quot;-&quot;]" sap:VirtualizedContainerService.HintSize="521,485" sap2010:WorkflowViewState.IdRef="If_2">
                     <If.Then>
                       <Sequence DisplayName="Delete Leave Event" sap:VirtualizedContainerService.HintSize="376,337" sap2010:WorkflowViewState.IdRef="Sequence_7">
                         <sap:WorkflowViewStateService.ViewState>
