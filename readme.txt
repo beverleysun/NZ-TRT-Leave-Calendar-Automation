@@ -3,6 +3,14 @@ This ZIP file contains the solution submission by INFOSYS 300/SOFTENG 762 Group 
 This solution is designed to only be operatable on a authenticated machine from our client NZ TRT Ltd, this is because the login process into ipayroll requires 2FA code authentication, in which can only be generated from the verfied machine locally in real time. To run this solution would require to connect to the verified machine through TeamViewer and get control of it. Then, unzip this folder locally and start uiPath Studio, open the project with the directory of {project.json}. And click "Run" button on the top left options bar. 
 Note: the first time running the solution on the machine may be required to enter the outlook account info.
 
-Several steps above require privileged account details of NZ TRT, to get full access please contact John James, our project sponsor. Detail shows below:
+Several steps above require privileged account details of NZ TRT, to get full access please contact our proeject sponsor John James
+Contact Infomation shows below:
+
 Email: Johnj@trt.co.nz
 Contact Number: 07 849 4839
+
+The required credentials are:
+
+Teamviewer TV ID and TV Password;
+NZ TRT Machine name and password;
+Outlook account and password;
