@@ -95,7 +95,7 @@
       <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ProcessInputCSV" sap:VirtualizedContainerService.HintSize="1263,2847" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="PreProcessInputData" sap:VirtualizedContainerService.HintSize="1263,2847" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="csvData" />
       <Variable x:TypeArguments="mg:Event[]" Default="[Array.Empty(Of Microsoft.Graph.Event)()]" Name="existingEvents" />
@@ -105,8 +105,8 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:Comment sap:VirtualizedContainerService.HintSize="1221,131" sap2010:WorkflowViewState.IdRef="Comment_3" Text="This workflow takes the input CSV file and filters out unneeded rows. These rows include approved leave that has already been added to the calendar, and cancelled leave that have already been removed from the calendar." />
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1221,91" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Processing input data&quot;]" />
+    <ui:Comment sap:VirtualizedContainerService.HintSize="1221,131" sap2010:WorkflowViewState.IdRef="Comment_3" Text="This workflow takes the input data and filters out unneeded rows. These rows include approved leave that has already been added to the calendar, and cancelled leave that have already been removed from the calendar." />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1221,91" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Pre-processing input data&quot;]" />
     <Sequence DisplayName="Access Leave Events" sap:VirtualizedContainerService.HintSize="1221,449" sap2010:WorkflowViewState.IdRef="Sequence_10">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -241,6 +241,6 @@
         </ui:ForEachRow.Body>
       </ui:ForEachRow>
     </Sequence>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1221,91" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Finished processing input CSV&quot;]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1221,91" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Finished pre-processing input data&quot;]" />
   </Sequence>
 </Activity>
