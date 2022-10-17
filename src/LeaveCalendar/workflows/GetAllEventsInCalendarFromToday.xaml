@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>788,686</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1228,726</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetAllEventsInCalendarFromNow_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -90,7 +90,7 @@
                 <OutArgument x:TypeArguments="mg:Calendar" x:Key="out_leaveCalendar">[calendar]</OutArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
-            <umac:SearchEvents Account="{x:Null}" EndDate="{x:Null}" EventId="{x:Null}" MaxResults="{x:Null}" SearchQuery="{x:Null}" Calendar="[calendar]" DisplayName="Search Events" Events="[out_events]" sap:VirtualizedContainerService.HintSize="334,85" sap2010:WorkflowViewState.IdRef="SearchEvents_1" ReturnRecurring="False" StartDate="[Date.Now]" />
+            <umac:SearchEvents Account="{x:Null}" EndDate="{x:Null}" EventId="{x:Null}" SearchQuery="{x:Null}" Calendar="[calendar]" DisplayName="Search Events" Events="[out_events]" sap:VirtualizedContainerService.HintSize="334,85" sap2010:WorkflowViewState.IdRef="SearchEvents_1" MaxResults="2147483647" ReturnRecurring="False" StartDate="[Date.Now]" />
           </Sequence>
         </ActivityAction>
       </uma:Office365ApplicationScope.Body>
